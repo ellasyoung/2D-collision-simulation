@@ -79,8 +79,6 @@ public class Visualizer extends JPanel implements Runnable, MouseListener, Mouse
     }
 
     // Handles the physics simulation for a single contact between two distinct circles
-    // You are not responsible for understanding this method.
-    // You should not modify this method.
     public void resolveCircleContact(ContactResult cr) {
         if (!simulate) {return;}
         Vector2 relativeVelocity = Vector2.sub(cr.a.velocity, cr.b.velocity);
@@ -100,8 +98,6 @@ public class Visualizer extends JPanel implements Runnable, MouseListener, Mouse
     }
 
     // Handles the physics simulation for a single contact between a circle and the boundaries of the level
-    // You are not responsible for understanding this method.
-    // You should not modify this method.
     public void resolveBoundaryContact(Circle c, Vector2 collisionNormal) {
         if (!simulate) {return;}
         double normalVelocity = Vector2.dot(c.velocity, collisionNormal);
@@ -121,8 +117,6 @@ public class Visualizer extends JPanel implements Runnable, MouseListener, Mouse
     // Each circle/circle contact will then be resolved/simulated.
     // Each circle will then be contact checked against the 4 walls and all such contacts will be resolved/simulated.
     // We then step the simulation forward using numerical integration.
-    // You are not responsible for understanding this method.
-    // You should not modify this method.
     public void simulate() {
         HashSet<ContactResult> contacts = this.bvhAccelerated ? ContactFinder.getContactsBVH(circles, this.bvh) : ContactFinder.getContactsNaive(circles);
         if (contacts == null) {
@@ -161,7 +155,6 @@ public class Visualizer extends JPanel implements Runnable, MouseListener, Mouse
 
     @Override
     // Called every frame to update and render the scene.
-    // You should not modify this method.
     public void paintComponent(Graphics g) {
         // clear frame
         super.paintComponent(g);
